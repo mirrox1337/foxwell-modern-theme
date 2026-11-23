@@ -1,0 +1,3 @@
+*.bmp binary
+*.png binary
+theme_dark.txt text eol=lf
