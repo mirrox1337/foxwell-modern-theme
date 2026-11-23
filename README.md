@@ -6,6 +6,9 @@ tiles, a navy title bar, and a full dark mode.
 Theme by Mirrox — https://github.com/mirrox1337
 
 > **Not tested on a device yet.** Back up your scanner's `/Res/Theme` folder before copying anything.
+>
+> **Vibe-coded.** This theme, the generator script and the firmware notes were made with an AI coding
+> assistant (Claude Code) and have not been reviewed line by line.
 
 | Light | Dark |
 |---|---|
@@ -59,5 +62,7 @@ Colors, the credit line and the per-tile palette are set near the top of the scr
 
 ## Disclaimer
 
-Unofficial and not affiliated with Foxwell. The original pictures and logos belong to their owner.
-Use at your own risk.
+- **Vibe-coded:** everything here was produced with an AI coding assistant (Claude Code). The notes on
+  how the firmware works come from reading the firmware file, not from testing, and may be wrong.
+- **Unofficial:** not affiliated with Foxwell. The original pictures and logos belong to their owner.
+- **Use at your own risk:** keep a backup of your scanner's files.
