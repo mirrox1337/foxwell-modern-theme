@@ -271,6 +271,12 @@ def main():
             28: 0xFF60A5FA,  # pure-blue pen -> lighter blue
             31: 0xFFE2E8F0, 58: 0xFFE2E8F0, 59: 0xFFE2E8F0, 60: 0xFFE2E8F0,   # other dark text
             61: 0xFF182136,  # light panel behind text 60
+            # entries only the vehicle (diagnostic) programs use, traced in EOBD.bin
+            3: 0xFFE2E8F0, 54: 0xFFE2E8F0,                            # dark text (dialogs, info screens)
+            5: 0xFF94A3B8,                                            # (overrides the value above: was too dim)
+            40: 0xFF182136, 45: 0xFF182136, 46: 0xFF182136, 55: 0xFF182136,   # light panel backgrounds
+            21: 0xFF182136, 22: 0xFF3A4864, 23: 0xFF2C3954,           # white / grey fills
+            42: 0xFF2C3954, 44: 0xFF2C3954,                           # light lines
         }
         import json
         with open(os.path.join(os.path.dirname(DST), 'theme_dark.txt'), 'w', newline=chr(10)) as fh:

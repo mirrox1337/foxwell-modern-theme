@@ -110,3 +110,24 @@ Entries not listed are not looked up by number anywhere I could find in this fil
 - The firmware also looks for `focus_<name>.bmp` in `Picture/Home/` (for example `focus_diagnose.bmp`).
 - `theme_dark.txt` (made by `tools/modernize.py ... dark`) is the override file for the dark theme.
   Copy it to the device as `/Res/Theme/theme.txt`.
+
+## Hard-coded white in Home.bin (confirmed on a scanner, V2.07.001)
+
+Two colours in the menu grid code ignore `theme.txt`:
+
+- When an item with a picture loses the selection, its frame is redrawn in `0xFFFFFFFF`
+  (`mvn r1, #0` before `bl 0x2001abf4`, at 0x20011d64, 0x2003fdc0, 0x20040b48, 0x20041538).
+- A text-only item (for example a car brand) gets a white box behind its text (0x2003fb6c).
+
+`tools/patch_home.py` replaces the first four with `ldr r1, [r4, #0x20]` (the item's own background)
+and the last with `mov r1, #0xff000000`, then rewrites the checksum. Tested working on a device.
+The selected item's frame colour is skin entry 28.
+
+## Vehicle (diagnostic) programs
+
+Each vehicle program has its own copy of the UI code and the same default table, but looks up more
+entries than Home does. Traced in `EOBD.bin` (colour getter at file offset 0xa7f7c):
+
+- text: 1, 2, 3, 5, 6, 7, 31, 32, 60 (3 is dark by default and is used for dialog/info text)
+- backgrounds: 0, 8, 14, 22, 23, 24, 25, 26, 37, 40, 45, 46, 55, 61
+- lines and other drawing: 11, 13, 15, 17, 20, 21, 22, 27, 38, 41, 42, 43, 44, 47; 54/55 look like a text/background pair

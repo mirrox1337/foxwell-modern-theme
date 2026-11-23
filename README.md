@@ -5,7 +5,7 @@ tiles, a navy title bar, and a full dark mode.
 
 Theme by Mirrox — https://github.com/mirrox1337
 
-> **Not tested on a device yet.** Back up your scanner's `/Res/Theme` folder before copying anything.
+> **Dark theme and the custom firmware pack are confirmed working on one scanner running Home V2.07.001.** The light theme is untested. Back up your scanner's `/Res/Theme` folder before copying anything.
 >
 > **Vibe-coded.** This theme, the generator script and the firmware notes were made with an AI coding
 > assistant (Claude Code) and have not been reviewed line by line.
@@ -26,6 +26,8 @@ The labels in the home previews are a mock-up; the scanner draws its own text.
 | `Picture_dark/` | Dark theme |
 | `theme_dark.txt` | Color overrides that make the scanner's own text light — needed for the dark theme |
 | `Focus_extra_light/`, `Focus_extra_dark/` | Optional highlighted tiles for the selected home item |
+| `CFW/` | Custom firmware pack: dark theme, Swedish texts, credits, brand pictures — see `CFW/README.md` |
+| `tools/build_cfw.py`, `patch_home.py`, `dark_vehicles.py`, `no_white.py`, `fwtool.py` | Build the pack, patch `Home.bin`, check checksums |
 | `tools/modernize.py` | Script that generates everything above from `Picture/` |
 | `THEME_NOTES.md` | How the firmware picks its colors, and the `theme.txt` format |
 
